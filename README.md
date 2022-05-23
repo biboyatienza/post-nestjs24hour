@@ -56,7 +56,29 @@ $ npm run start:prod
         $ git add .
         $ git commit -am "Trying go live on heroku"
         $ git push heroku master
-        ``
+        ```
+    - 07:19 We are now live in [https://post-nestjs24hour.herokuapp.com/](https://post-nestjs24hour.herokuapp.com/)
+    - 07:24 Fix for $ git push heroku master
+      error: src refspec master does not match any
+      error: failed to push some refs to 'https://git.heroku.com/post-nestjs24hour.git' [SOLVED_BY](https://stackoverflow.com/questions/26595874/heroku-src-refspec-master-does-not-match-any)    
+      ```
+      $ git push heroku HEAD:master
+
+        Enumerating objects: 27, done.
+        Counting objects: 100% (27/27), done.
+        Delta compression using up to 4 threads
+        Compressing objects: 100% (26/26), done.
+        Writing objects: 100% (27/27), 150.02 KiB | 6.52 MiB/s, done.
+        Total 27 (delta 4), reused 0 (delta 0)
+        remote: Compressing source files... done.
+        remote:        https://post-nestjs24hour.herokuapp.com/ deployed to Heroku
+        remote: 
+        remote: Verifying deploy... done.
+        To https://git.heroku.com/post-nestjs24hour.git
+        * [new branch]      HEAD -> master
+
+      ```
+
 ## Support
 Just buzz the author.
 
