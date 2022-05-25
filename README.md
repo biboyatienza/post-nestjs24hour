@@ -112,7 +112,8 @@ $ npm run start:prod
     }
 
     ```
-    
+  - 11:20 - Get random images from Pexels, by manupulating page & per_page query string.
+  
 ## Support
 Just buzz the author.
 
