@@ -1,6 +1,7 @@
 ### 25.May.2022 10:22
 ### Pipe: https://www.youtube.com/watch?v=DAjF0jkn6Nc AND i6Rt-DpbG_A
 ### https://www.youtube.com/watch?v=uAKzFhE3rxU
+### https://mediajams.dev/post/Signed-Image-Uploading-to-Cloudinary-with-Angular-and-NestJS
 
 ### 11:18 Get nth number of Pexels images at random page:
 GET http://localhost:3000/images/?limit=4

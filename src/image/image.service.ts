@@ -7,7 +7,6 @@ import { PexelsImageDto } from './dtos';
 export class ImageService {
   private MAX_PAGE: number = 15;
 
-
   constructor(private readonly httpService:HttpService){}
 
   private getRandomNumber(max_number: number): number{

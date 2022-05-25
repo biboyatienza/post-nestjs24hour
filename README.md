@@ -113,7 +113,12 @@ $ npm run start:prod
 
     ```
   - 11:20 - Get random images from Pexels, by manupulating page & per_page query string.
-  
+  - 18:00 - Wiring Cloudinary
+    - $ npm install cloudinary
+    - $ npm i -D @types/multer
+    - $ npm install streamifier
+    
+      
 ## Support
 Just buzz the author.
 
