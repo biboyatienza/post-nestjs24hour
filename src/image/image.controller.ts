@@ -11,9 +11,6 @@ export class ImageController {
   @Get()
   @HttpCode(HttpStatus.OK)
   async getImages(@Query('limit', ParseIntPipe) limit: number=this.min_limit): Promise<any>{
-    // const allowed_limit = Number(limit >= this.max_limit ? this.max_limit : limit);
-    // if(isNaN(allowed_limit)) throw new ForbiddenException('Error: [limit] should be a number. Example: limit=6');
     return await this.imageService.getImages(limit);
-    // return `Hi there again - bboy (${allowed_limit})`;
   }
 }

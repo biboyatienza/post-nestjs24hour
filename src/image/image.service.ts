@@ -5,10 +5,17 @@ import { PexelsImageDto } from './dtos';
 
 @Injectable()
 export class ImageService {
+  private MAX_PAGE: number = 15;
+
+
   constructor(private readonly httpService:HttpService){}
 
-  private async getPexelsImages(limit: number): Promise<any>{
-    const uri = 'https://api.pexels.com/v1/search?query=people';
+  private getRandomNumber(max_number: number): number{
+    return Math.floor(Math.random() * max_number);
+  } 
+
+  private async getPexelsImages(page_number: number, number_of_image_per_page: number): Promise<any>{
+    const uri = `https://api.pexels.com/v1/search?query=people&page=${page_number}&per_page=${number_of_image_per_page}`;
     const token = '563492ad6f9170000100000143b1404b9f7e475d8c8831687a2e36a9';
     
     return this.httpService
@@ -24,13 +31,7 @@ export class ImageService {
   }
 
   async getImages(limit: number): Promise<any>{
-    const pexelsImages = await this.getPexelsImages(limit);
-    
-    // Random?  
-    // const getRandomPhotos = pexelsImages => [...photos][Math.floor(Math.random()*limit)];
-
-    return pexelsImages;
+    const pageNumber = this.getRandomNumber(this.MAX_PAGE);
+    return await this.getPexelsImages(pageNumber, limit);
   }
 }
-
-//const getRandomItem = set => [...set][Math.floor(Math.random()*set.size)]

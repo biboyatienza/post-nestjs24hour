@@ -1,13 +1,21 @@
-
-
 ### 25.May.2022 10:22
 ### Pipe: https://www.youtube.com/watch?v=DAjF0jkn6Nc AND i6Rt-DpbG_A
 ### https://www.youtube.com/watch?v=uAKzFhE3rxU
 
+### 11:18 Get nth number of Pexels images at random page:
+GET http://localhost:3000/images/?limit=4
+Content-Type: application/json
+
+
+### Pexel API Call with page & per_page: 11:14
+GET https://api.pexels.com/v1/search?query=people&page=2&per_page=3
+Authorization: Bearer 563492ad6f9170000100000143b1404b9f7e475d8c8831687a2e36a9
+
 
 ### 10:22 Get nth number of Pexels images:
-GET http://localhost:3000/images/?limit=1
+GET http://localhost:3000/images/?limit=5
 Content-Type: application/json
+
 
 
 
