@@ -117,7 +117,7 @@ $ npm run start:prod
     - $ npm install cloudinary
     - $ npm i -D @types/multer
     - $ npm install streamifier
-    
+  - 18:56 - Wired Cloudinary  
       
 ## Support
 Just buzz the author.
