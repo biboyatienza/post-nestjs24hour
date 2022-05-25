@@ -1,0 +1,40 @@
+
+
+### 25.May.2022 10:22
+### Pipe: https://www.youtube.com/watch?v=DAjF0jkn6Nc AND i6Rt-DpbG_A
+### https://www.youtube.com/watch?v=uAKzFhE3rxU
+
+
+### 10:22 Get nth number of Pexels images:
+GET http://localhost:3000/images/?limit=1
+Content-Type: application/json
+
+
+
+### END-OF-DAY ###
+### 11:17 Get nth number of Pexels images:
+GET http://localhost:3000/images/?limit=7
+Content-Type: application/json
+
+
+### Pexel API Call: 08:11
+GET https://api.pexels.com/v1/search?query=people
+Authorization: Bearer 563492ad6f9170000100000143b1404b9f7e475d8c8831687a2e36a9
+
+
+### With value with in the allowed range
+GET http://localhost:3000/images/?limit=7
+Content-Type: application/json
+
+### With more than 10, 'limit=33', shuould return 10
+GET http://localhost:3000/images/?limit=33
+Content-Type: application/json
+
+### With invalid 'limit=invalid'
+GET http://localhost:3000/images/?limit=invalid
+Content-Type: application/json
+
+### 24.May.2022 07:47
+### With no limit defined, should return 5 as default
+GET http://localhost:3000/images
+Content-Type: application/json

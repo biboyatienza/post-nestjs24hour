@@ -78,7 +78,41 @@ $ npm run start:prod
         * [new branch]      HEAD -> master
 
       ```
+    - 07:38 Create base images route 
+      - mkdir src/image
+      - $ npx nest g service image --no-spec
+      - $ npx nest g controller image --no-spec 
+    - 08:13 install @nestjs/axios => https://docs.nestjs.com/techniques/http-module
+      ```
+      npm i --save @nestjs/axios
+      ```
+      - https://www.youtube.com/watch?v=hHBDcbI6EVA 
+      - https://flaviocopes.com/axios-send-authorization-header/
+    - 08:47 Break, PLDT tech outside 
+    - 11:13 Resume, while waiting from PLDT call for new FIBER line
+    - 12:03 Break, cooking lunch
+- 2022.May.25 
+  - 10:59 - Refactor images/ controller using "pipe"
+    ``` 
+    // Old Code:
+    @Get()
+    @HttpCode(HttpStatus.OK)
+    async getImages(@Query('limit', limit) limit: number=this.min_limit): Promise<any>{
+      const allowed_limit = Number(limit >= this.max_limit ? this.max_limit : limit);
+      if(isNaN(allowed_limit)) throw new ForbiddenException('Error: [limit] should be a number. Example: limit=6');
+      return await this.imageService.getImages(limit);
+    }
 
+
+    // New Code: Refactor, using pipe
+      @Get()
+      @HttpCode(HttpStatus.OK)
+      async getImages(@Query('limit', ParseIntPipe) limit: number=this.min_limit): Promise<any>{
+        return await this.imageService.getImages(limit);
+    }
+
+    ```
+    
 ## Support
 Just buzz the author.
 
