@@ -50,7 +50,7 @@ export class AuthService {
     return await this.getSignedToken(user.id, user.email);
   }
   
-  async passwordReset(dto: EmailUserDto): Promise<boolean>{
+  async passwordReset(dto: EmailUserDto): Promise<any>{
     const user = await this.findUserByEmail(dto.email);
     if(!user) throw new ForbiddenException('Email does not exists.');
 
@@ -67,7 +67,18 @@ export class AuthService {
 
     // Email sending:  passwordResetToken
     this.eventEmitter2.emit('email.password.reset.token', new PasswordResetTokenEvent(user.email, hashPasswordResetToken));
-    return true;
+    
+    // Since my SENDGRID account is "Your account is temporarily under review. Please contact Support to regain access."
+    // return true;
+
+    // I'll just return the passwordResetToken here, until my SENDGRID account is back to normal.
+    return {
+      "request_created": true,
+      "password_reset_token": hashPasswordResetToken,
+      "info": "Since my SENDGRID account is 'Your account is temporarily under review. Please contact Support to regain access. I'll just return the password_reset_token here, until my SENDGRID account is back to normal.'"
+    } 
+
+
   }
 
   async passwordNew(dto: NewPasswordUserDto): Promise<TokenType>{

@@ -22,7 +22,7 @@ export class AuthController {
 
   @Post('password-reset')
   @HttpCode(HttpStatus.OK)
-  passwordReset(@Body() dto: EmailUserDto): Promise<boolean>{
+  passwordReset(@Body() dto: EmailUserDto): Promise<any>{
     return this.authService.passwordReset(dto);
   }
 

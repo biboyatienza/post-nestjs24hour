@@ -1,8 +1,53 @@
-### 26.May.2022 09:26
-### https://www.youtube.com/watch?v=esYVUkFhwik
-### Valid auth/register call;
-GET https://post-nestjs24hour.herokuapp.com/images
+### 27.May.2022 06:12
+
+### Live auth/login :  with new password
+POST https://post-nestjs24hour.herokuapp.com/auth/login
 Content-Type: application/json
+
+{
+  "email": "caisback@outlook.com",
+  "password": "NewPass@word123"
+}
+
+
+### Live auth/password-reset : 
+POST https://post-nestjs24hour.herokuapp.com/auth/password-new
+Content-Type: application/json
+
+{
+  "password_reset_token": "$2b$10$26Iim0EAwT6gNlBN/91Uw.6NGyN.wtSg.DelM8WgZqxKWrWl1pUbC",
+  "new_password": "NewPass@word123"
+}
+
+
+### Live auth/password-reset : 
+POST https://post-nestjs24hour.herokuapp.com/auth/password-reset
+Content-Type: application/json
+
+{
+  "email": "caisback@outlook.com"
+}
+
+
+### Live auth/login : 
+POST https://post-nestjs24hour.herokuapp.com/auth/login
+Content-Type: application/json
+
+{
+  "email": "caisback@outlook.com",
+  "password": "Pass@word1"
+}
+
+
+### Live auth/register : 
+POST https://post-nestjs24hour.herokuapp.com/auth/register
+Content-Type: application/json
+
+{
+  "email": "caisback@outlook.com",
+  "password": "Pass@word1",
+  "role": "ADMIN"
+}
 
 
 ### https://www.youtube.com/watch?v=lV6vty0Hf_E&list=PLsjmv9aDmNDBwFUXZbdfc4Xauvd-gDsLV&index=7
