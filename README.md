@@ -130,10 +130,16 @@ $ npm run start:prod
   - 09:51 Wiring Prisma Client
     - $ npx nest g module prisma --no-spec
     - $ npx nest g service prisma --no-spec
-  
-
-
-      
+  - 10:02 Auth Routes
+    - $ npx nest g module auth --no-spec
+    - $ npx nest g service auth --no-spec
+    - $ npx nest g controller auth --no-spec
+    - $ npm i --save class-validator
+  - 15:37 Authentication : JWT function => https://docs.nestjs.com/security/authentication#authentication
+    - $ npm i --save @nestjs/passport
+    - $ npm i --save @nestjs/jwt passport-jwt
+    - $ npm i -D @types/passport-jwt
+  - 20:59 Wiring Event    
 ## Support
 Just buzz the author.
 

@@ -3,6 +3,34 @@
 ### https://www.youtube.com/watch?v=lV6vty0Hf_E&list=PLsjmv9aDmNDBwFUXZbdfc4Xauvd-gDsLV&index=7
 
 
+### Login Valid user auth/login call;
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "baliwme2004@gmail.com",
+  "password": "Pass@word1"
+}
+
+
+### Valid auth/register call;
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "email": "baliwme2004@gmail.com",
+  "password": "Pass@word1",
+  "role": "ADMIN"
+}
+
+### Invalid auth/register call;
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+
+### 
+GET http://localhost:8080/images/?limit=h
+Content-Type: application/json
 
 
 ### END-OF_DAY##

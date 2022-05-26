@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { map, tap } from 'rxjs';
-import { PexelsImageDto } from './dtos';
+import { map } from 'rxjs';
+import { PexelsImageDto } from './dto';
 
 @Injectable()
 export class ImageService {
@@ -25,7 +25,7 @@ export class ImageService {
       })
       .pipe(
         map((response) => response.data),
-        tap((data) => console.log(data))
+        // tap((data) => console.log(data))
       ); 
   }
 
