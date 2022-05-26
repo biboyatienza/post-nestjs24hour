@@ -143,7 +143,8 @@ $ npm run start:prod
     - $ npx nest g service sendgrid --no-spec
     - $ npm i @nestjs/config @sendgrid/mail
     - $ npm i @nestjs/event-emitter --force
-
+    - SendGrid account => Your account is temporarily under review and could not sent an email
+    - $ git push heroku HEAD:master 
 
 
 ## Support
