@@ -117,7 +117,18 @@ $ npm run start:prod
     - $ npm install cloudinary
     - $ npm i -D @types/multer
     - $ npm install streamifier
-  - 18:56 - Wired Cloudinary  
+  - 18:56 - Wired Cloudinary
+- 26.May.2022
+  - 09:08 Wiring Prima
+    - $ npm install prisma --save-dev
+    - $ npx prisma
+    - $ npx prisma init
+    - Adjust prisma>schema.prisma
+    - $ npx prisma migrate dev --create-only || $ npx prisma migrate dev --name init
+    - $ npx prisma db push
+
+
+
       
 ## Support
 Just buzz the author.

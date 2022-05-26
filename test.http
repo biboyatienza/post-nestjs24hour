@@ -1,7 +1,19 @@
+### 26.May.2022 09:26
+### https://www.youtube.com/watch?v=esYVUkFhwik
+### https://www.youtube.com/watch?v=lV6vty0Hf_E&list=PLsjmv9aDmNDBwFUXZbdfc4Xauvd-gDsLV&index=7
+
+
+
+### END-OF_DAY##
 ### 25.May.2022 10:22
 ### Pipe: https://www.youtube.com/watch?v=DAjF0jkn6Nc AND i6Rt-DpbG_A
 ### https://www.youtube.com/watch?v=uAKzFhE3rxU
 ### https://mediajams.dev/post/Signed-Image-Uploading-to-Cloudinary-with-Angular-and-NestJS
+
+
+###
+curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 
+'file=https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg&public_id=olympic_flag&timestamp=12345678&api_key=98765432&signature=a123456f987664af'
 
 ### 11:18 Get nth number of Pexels images at random page:
 GET http://localhost:3000/images/?limit=4
