@@ -7,12 +7,15 @@ import { EmailUserDto, NewPasswordUserDto, RegisterUserDto } from './dto';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import { User } from '@prisma/client';
 import { LoginUserDto } from './dto/login-user.dto';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { PasswordResetTokenEvent } from './events';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly prismaService: PrismaService,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
+    private readonly eventEmitter2: EventEmitter2
     ){}
 
   async register(dto: RegisterUserDto): Promise<TokenType>{
@@ -63,7 +66,7 @@ export class AuthService {
     });
 
     // Email sending:  passwordResetToken
-
+    this.eventEmitter2.emit('email.password.reset.token', new PasswordResetTokenEvent(user.email, hashPasswordResetToken));
     return true;
   }
 

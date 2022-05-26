@@ -139,7 +139,13 @@ $ npm run start:prod
     - $ npm i --save @nestjs/passport
     - $ npm i --save @nestjs/jwt passport-jwt
     - $ npm i -D @types/passport-jwt
-  - 20:59 Wiring Event    
+  - 20:59 Wiring Event 
+    - $ npx nest g service sendgrid --no-spec
+    - $ npm i @nestjs/config @sendgrid/mail
+    - $ npm i @nestjs/event-emitter --force
+
+
+
 ## Support
 Just buzz the author.
 
