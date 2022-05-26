@@ -145,6 +145,20 @@ $ npm run start:prod
     - $ npm i @nestjs/event-emitter --force
     - SendGrid account => Your account is temporarily under review and could not sent an email
     - $ git push heroku HEAD:master 
+- 27.May.2022
+  - Redeploying to heroku with pg
+  - Point .env to heroku pg
+  - $ npx prisma db push
+    ```
+    $ npx prisma db push
+    Environment variables loaded from .env
+    Prisma schema loaded from prisma/schema.prisma
+    Datasource "db": PostgreSQL database "d27gh8pj0oae2f", schema "public" at "ec2-3-228-235-79.compute-1.amazonaws.com:5432"
+
+    🚀  Your database is now in sync with your schema. Done in 9.06s
+
+    ✔ Generated Prisma Client (3.14.0 | library) to ./node_modules/@prisma/client in 102ms
+    ```
 
 
 ## Support

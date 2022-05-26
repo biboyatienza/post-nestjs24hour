@@ -20,7 +20,7 @@ lerna-debug.log*
 
 # IDEs and editors
 /.idea
-.project
+.git ject
 .classpath
 .c9/
 *.launch

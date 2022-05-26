@@ -1,8 +1,37 @@
 ### 26.May.2022 09:26
 ### https://www.youtube.com/watch?v=esYVUkFhwik
+### Valid auth/register call;
+GET https://post-nestjs24hour.herokuapp.com/images
+Content-Type: application/json
+
+
 ### https://www.youtube.com/watch?v=lV6vty0Hf_E&list=PLsjmv9aDmNDBwFUXZbdfc4Xauvd-gDsLV&index=7
 ### https://progressivecoder.com/how-to-send-emails-using-nestjs-sendgrid-api/
 ### https://docs.nestjs.com/techniques/events#dispatching-events
+
+
+
+### auth/password-reset call;
+POST http://localhost:8080/auth/password-new
+Content-Type: application/json
+
+{
+  "password_reset_token": "$2b$10$8EAeebZxIaLZEUdLyQX2/eLU9/ffxy.TE91OtlB93IefjOP5PTO12",
+  "new_password": "Password@1234"
+
+}
+
+
+
+
+### auth/password-reset call;
+POST http://localhost:8080/auth/password-reset
+Content-Type: application/json
+
+{
+  "email": "baliwme2014@gmail.com"
+}
+
 
 
 ### Login Valid user auth/login call;
@@ -10,7 +39,7 @@ POST http://localhost:8080/auth/login
 Content-Type: application/json
 
 {
-  "email": "baliwme2004@gmail.com",
+  "email": "baliwme2014@gmail.com",
   "password": "Pass@word1"
 }
 
@@ -20,7 +49,7 @@ POST http://localhost:8080/auth/register
 Content-Type: application/json
 
 {
-  "email": "baliwme2004@gmail.com",
+  "email": "baliwme2014@gmail.com",
   "password": "Pass@word1",
   "role": "ADMIN"
 }
