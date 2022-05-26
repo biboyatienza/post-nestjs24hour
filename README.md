@@ -126,7 +126,11 @@ $ npm run start:prod
     - Adjust prisma>schema.prisma
     - $ npx prisma migrate dev --create-only || $ npx prisma migrate dev --name init
     - $ npx prisma db push
-
+    - $ docker inspect <ID> => "IPAddress": "172.18.0.2",
+  - 09:51 Wiring Prisma Client
+    - $ npx nest g module prisma --no-spec
+    - $ npx nest g service prisma --no-spec
+  
 
 
       
