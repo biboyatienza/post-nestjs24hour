@@ -13,8 +13,18 @@ export class CloudinaryService {
           resolve(result);
         },
       );
-
       streamifier.createReadStream(file.buffer).pipe(uploadStream);
     });
   }
+
+  uploadUrl(url: string): Promise<CloudinaryResponse>{
+    return new Promise<CloudinaryResponse>((resolve, reject) => {
+      cloudinary.uploader.upload(url, { tags: "basic_sample" },
+          (error, result) => {
+            if (error) return reject(error);
+          resolve(result);
+        },
+      );
+    });
+  }   
 }

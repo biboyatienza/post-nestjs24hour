@@ -1,4 +1,23 @@
+### 27.May.2022 05:29
+### http://json2ts.com/
+
+
+
+
+
+### END-OF-DAY ###
 ### 27.May.2022 06:12
+### https://support.cloudinary.com/hc/en-us/community/posts/360010327340-Invalid-Signature-String-to-sign
+
+
+### 
+
+GET http://localhost:8080/images/?limit=3
+Content-Type: application/json
+
+
+###
+curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=https://www.example.com/sample.jpg&timestamp=1653612483&api_key=342277832733615&signature=39240834322e64c7882351298c963a45a84d56c6'
 
 ### Live auth/login :  with new password
 POST https://post-nestjs24hour.herokuapp.com/auth/login

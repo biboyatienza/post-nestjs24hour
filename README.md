@@ -160,7 +160,7 @@ $ npm run start:prod
     ✔ Generated Prisma Client (3.14.0 | library) to ./node_modules/@prisma/client in 102ms
     ```
   - While at 10-ReDeploying2Heroku > $ git push heroku HEAD:master
-  
+  - npx ts-node src/foo.ts
 
 ## Support
 Just buzz the author.
