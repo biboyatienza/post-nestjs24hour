@@ -1,7 +1,42 @@
 ### 27.May.2022 05:29
 ### http://json2ts.com/
+### https://github.com/cloudinary/cloudinary_npm/blob/master/samples/basic/basic.js
 
 
+### 
+GET http://localhost:8080/images/?limit=3
+Content-Type: application/json
+
+
+#   message: 'Error in loading https://www.pexels.com/photo/man-wearing-jacket-standing-on-wooden-docks-leading-to-body-of-water-571169/ - 403 Forbidden',
+#   name: 'Error',
+#   http_code: 400
+# }
+#   message: 'Error in loading https://www.pexels.com/photo/little-boy-carrying-can-1125850/ - 403 Forbidden',
+#   message: 'Error in loading https://www.pexels.com/photo/people-walking-in-market-439818/ - 403 Forbidden',
+
+
+# {
+#   asset_id: '58d3bed5f091f52303277505c27f9af0',
+#   public_id: 'h0yibffo6jqxz1ytpu8v',
+#   version: 1653724635,
+#   version_id: 'd76b268037fc2bd28637d3f72626d609',
+#   signature: 'dadfceb0cba04906717e0dea6294a436ba158eeb',
+#   width: 400,
+#   height: 300,
+#   format: 'jpg',
+#   resource_type: 'image',
+#   created_at: '2022-05-28T07:57:15Z',
+#   tags: [ 'basic_sample' ],
+#   bytes: 206960,
+#   type: 'upload',
+#   etag: '9359a0f3ec878d32e06a456c4224b52b',
+#   placeholder: false,
+#   url: 'http://res.cloudinary.com/dhcnbaqsl/image/upload/v1653724635/h0yibffo6jqxz1ytpu8v.jpg',
+#   secure_url: 'https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653724635/h0yibffo6jqxz1ytpu8v.jpg',
+#   original_filename: 'couple',
+#   api_key: '342277832733615'
+# }
 
 
 
@@ -11,7 +46,6 @@
 
 
 ### 
-
 GET http://localhost:8080/images/?limit=3
 Content-Type: application/json
 

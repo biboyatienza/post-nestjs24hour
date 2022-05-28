@@ -17,9 +17,9 @@ export class CloudinaryService {
     });
   }
 
-  uploadUrl(url: string): Promise<CloudinaryResponse>{
+  async uploadUrl(url: string): Promise<CloudinaryResponse>{
     return new Promise<CloudinaryResponse>((resolve, reject) => {
-      cloudinary.uploader.upload(url, { tags: "basic_sample" },
+      cloudinary.uploader.upload(url, { "tags": "basic_sample", "width": 200, "height": 200, "crop": "fit"},
           (error, result) => {
             if (error) return reject(error);
           resolve(result);

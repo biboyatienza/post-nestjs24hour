@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { HttpModule, HttpService } from '@nestjs/axios';
+import { HttpModule } from '@nestjs/axios';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
@@ -12,7 +12,10 @@ import { ImageService } from './image/image.service';
 import { ImageController } from './image/image.controller';
 
 @Module({
-  imports: [HttpModule, CloudinaryModule, PrismaModule, AuthModule, EventEmitterModule.forRoot()],
+  imports: [HttpModule.register({
+      timeout: 5000,
+      maxRedirects: 5,
+    }), CloudinaryModule, PrismaModule, AuthModule, EventEmitterModule.forRoot()],
   controllers: [AppController, ImageController],
   providers: [AppService, SendgridService, CloudinaryService, ImageService],
 })
