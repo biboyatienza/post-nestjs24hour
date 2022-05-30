@@ -3,10 +3,402 @@
 ### https://stackoverflow.com/questions/71159026/jest-has-detected-open-handle-for-firstvaluefrom-in-nestjs
 
 
+### ADMIN : GET images/15 of USER(caisback@outlook.com) 
+GET  https://post-nestjs24hour.herokuapp.com/images/15
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1MzkwMTY1OCwiZXhwIjoxNjUzOTAyNTU4fQ.7nBmyRSSKoYP4oz67D5-upo1zSosLMSUtdb0KdgT6lE
+
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 113
+Etag: W/"71-Cn186+7rF5j1mU322/g/CVVSnGA"
+Date: Mon, 30 May 2022 09:12:39 GMT
+Via: 1.1 vegur
+
+{
+  "id": 15,
+  "hits": 3,
+  "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653901371/lr9usaycuc6amsbmodzf.jpg"
+}
+
+### USER(caisback@outlook.com)  : GET images/15 
+GET  https://post-nestjs24hour.herokuapp.com/images/15
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM5MDE4ODgsImV4cCI6MTY1MzkwMjc4OH0.mDxDhIKkQaXVQJ2CWokuJ8v24vmDFaKe3VFKfT_xuLE
+
+HTTP/1.1 403 Forbidden
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 68
+Etag: W/"44-1JQhH+ckfFmCFAl6VpkMxC3LLQo"
+Date: Mon, 30 May 2022 09:11:44 GMT
+Via: 1.1 vegur
+
+{
+  "statusCode": 403,
+  "message": "Image not exists.",
+  "error": "Forbidden"
+}
+
+
+### ADMIN (biboyatienza@gmail.com) : DELETE images/15 of USER (caisback@outlook.com)
+DELETE  https://post-nestjs24hour.herokuapp.com/images/15
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1MzkwMTY1OCwiZXhwIjoxNjUzOTAyNTU4fQ.7nBmyRSSKoYP4oz67D5-upo1zSosLMSUtdb0KdgT6lE
+
+
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: text/html; charset=utf-8
+Content-Length: 4
+Etag: W/"4-X/5TO4MPCKAyY0ipFgr6/IraRNs"
+Date: Mon, 30 May 2022 09:08:31 GMT
+Via: 1.1 vegur
+
+true
+
+
+
+### ADMIN auth/login : To Delete image id: 15
+POST https://post-nestjs24hour.herokuapp.com/auth/login
+Content-Type: application/json
+
+{
+  "email": "biboyatienza@gmail.com",
+  "password": "NEW-Pass@word1"
+}
+
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 202
+Etag: W/"ca-aF8btMqoLyoW1zG1PXTr1onv52o"
+Date: Mon, 30 May 2022 09:07:38 GMT
+Via: 1.1 vegur
+
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1MzkwMTY1OCwiZXhwIjoxNjUzOTAyNTU4fQ.7nBmyRSSKoYP4oz67D5-upo1zSosLMSUtdb0KdgT6lE"
+}
+
+
+### USER caisback@outlook.com : Call images/?limit=1
+GET https://post-nestjs24hour.herokuapp.com/images/?limit=1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM5MDA1OTgsImV4cCI6MTY1MzkwMTQ5OH0.5zOglxiu-mnc5bGWLpdRG5ntNzHn3FyI38PAtKYL094
+
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 134
+Etag: W/"86-YK8c9zk7iPW4A66UNoGLXqVBjL4"
+Date: Mon, 30 May 2022 09:02:52 GMT
+Via: 1.1 vegur
+
+{
+  "limit": 1,
+  "data": [
+    {
+      "hits": 1,
+      "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653901371/lr9usaycuc6amsbmodzf.jpg",
+      "id": 15
+    }
+  ]
+}
+
+
+
+### USER auth/login : as USER
+POST https://post-nestjs24hour.herokuapp.com/auth/login
+Content-Type: application/json
+
+{
+  "email": "caisback@outlook.com",
+  "password": "NewPass@word123"
+}
+
+###
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 199
+Etag: W/"c7-nLuKCZiHt3ieZkEsBc4rd29w4IU"
+Date: Mon, 30 May 2022 08:49:58 GMT
+Via: 1.1 vegur
+
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM5MDA1OTgsImV4cCI6MTY1MzkwMTQ5OH0.5zOglxiu-mnc5bGWLpdRG5ntNzHn3FyI38PAtKYL094"
+}
+
+
+
+### ADMIN : GET images/12
+GET https://post-nestjs24hour.herokuapp.com/images/12
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTY4OCwiZXhwIjoxNjUzOTAwNTg4fQ.HN1vCqErRSrF4BajUE4B7juNhnAdzN_G01PTqwcZ6uk
+
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 69
+Etag: W/"45-2nj1acAWqgOIV052fWgCFma0kGI"
+Date: Mon, 30 May 2022 08:48:41 GMT
+Via: 1.1 vegur
+
+{
+  "id": 12,
+  "hits": 14,
+  "uri": "https://bitcoin.org/img/icons/logotop.svg"
+}
+
+
+
+### ADMIN : PATCH images/12
+PATCH https://post-nestjs24hour.herokuapp.com/images/12
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTY4OCwiZXhwIjoxNjUzOTAwNTg4fQ.HN1vCqErRSrF4BajUE4B7juNhnAdzN_G01PTqwcZ6uk
+
+{
+  "hits": 13,
+  "uri": "https://bitcoin.org/img/icons/logotop.svg"
+}
+
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: text/html; charset=utf-8
+Content-Length: 4
+Etag: W/"4-X/5TO4MPCKAyY0ipFgr6/IraRNs"
+Date: Mon, 30 May 2022 08:47:57 GMT
+Via: 1.1 vegur
+
+true
+
+### ADMIN : GET images/11
+GET https://post-nestjs24hour.herokuapp.com/images/11
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTY4OCwiZXhwIjoxNjUzOTAwNTg4fQ.HN1vCqErRSrF4BajUE4B7juNhnAdzN_G01PTqwcZ6uk
+
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 113
+Etag: W/"71-gTtl4tLtkmIM9ZlV9cUjHe+35uQ"
+Date: Mon, 30 May 2022 08:46:39 GMT
+Via: 1.1 vegur
+
+{
+  "id": 11,
+  "hits": 2,
+  "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653900311/bkvw9trkxojvrv5ws8qu.jpg"
+}
+
+
+
+### ADMIN : Call images/?limit=3
+GET https://post-nestjs24hour.herokuapp.com/images/?limit=3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTY4OCwiZXhwIjoxNjUzOTAwNTg4fQ.HN1vCqErRSrF4BajUE4B7juNhnAdzN_G01PTqwcZ6uk
+
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 362
+Etag: W/"16a-J8V213d8VFlPF5QsETNKMEbH54E"
+Date: Mon, 30 May 2022 08:45:14 GMT
+Via: 1.1 vegur
+
+{
+  "limit": 3,
+  "data": [
+    {
+      "hits": 1,
+      "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653900311/bkvw9trkxojvrv5ws8qu.jpg",
+      "id": 11
+    },
+    {
+      "hits": 1,
+      "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653900312/lgdtbls0ivihh3czboij.jpg",
+      "id": 12
+    },
+    {
+      "hits": 1,
+      "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653900314/hwhuxi5uik4dpxoftkhs.jpg",
+      "id": 13
+    }
+  ]
+}
+
+
+###  auth/password-new : Register as ADMIN 
+POST https://post-nestjs24hour.herokuapp.com/auth/password-new
+Content-Type: application/json
+
+{
+  "password_reset_token": "$2b$10$eqYWs7KRL9cpTg0M/XfvAOQHKqYNbavdr0yghkPuZzM7JCtmQ4RIC",
+  "new_password": "NEW-Pass@word1"
+}
+
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 202
+Etag: W/"ca-GNVmiUHxVt6ciE2/3lr3pjbtMqQ"
+Date: Mon, 30 May 2022 08:34:48 GMT
+Via: 1.1 vegur
+
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTY4OCwiZXhwIjoxNjUzOTAwNTg4fQ.HN1vCqErRSrF4BajUE4B7juNhnAdzN_G01PTqwcZ6uk"
+}
+
+
+###  auth/password-reset : Register as ADMIN 
+POST https://post-nestjs24hour.herokuapp.com/auth/password-reset
+Content-Type: application/json
+
+{
+  "email": "biboyatienza@gmail.com"
+}
+
+###
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 326
+Etag: W/"146-1Ds4S0Hj0l73JSf9OyKCBcczxM8"
+Date: Mon, 30 May 2022 08:32:46 GMT
+Via: 1.1 vegur
+
+{
+  "request_created": true,
+  "password_reset_token": "$2b$10$eqYWs7KRL9cpTg0M/XfvAOQHKqYNbavdr0yghkPuZzM7JCtmQ4RIC",
+  "info": "Since my SENDGRID account is 'Your account is temporarily under review. Please contact Support to regain access. I'll just return the password_reset_token here, until my SENDGRID account is back to normal.'"
+}
+
+
+
+
+###  auth/login : Register as ADMIN 
+POST https://post-nestjs24hour.herokuapp.com/auth/login
+Content-Type: application/json
+
+{
+  "email": "biboyatienza@gmail.com",
+  "password": "Pass@word1"
+}
+
+###
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 202
+Etag: W/"ca-eH3UcA0Y4rwq4XkO6dIWPIoNdJQ"
+Date: Mon, 30 May 2022 08:31:38 GMT
+Via: 1.1 vegur
+
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTQ5OCwiZXhwIjoxNjUzOTAwMzk4fQ.2LNtXHPZMnTd2onwHcDodDcOyTwNz6RPybJ5xthbzAI"
+}
+
+
+###  auth/register : Register as ADMIN 
+POST https://post-nestjs24hour.herokuapp.com/auth/register
+Content-Type: application/json
+
+{
+  "email": "biboyatienza@gmail.com",
+  "password": "Pass@word1",
+  "role": "ADMIN"
+}
+
+### RESULT:
+HTTP/1.1 201 Created
+Server: Cowboy
+Connection: close
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 202
+Etag: W/"ca-+IkS9g70Ono8QfGig6FC9wWm/qU"
+Date: Mon, 30 May 2022 08:30:14 GMT
+Via: 1.1 vegur
+
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTQxNCwiZXhwIjoxNjUzOTAwMzE0fQ.I0tVrf9-zMIGplpOch6szNOyur1UKeLl0cWqh61Ysg8"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+### local auth/register : 
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "email": "2baliwme2014@gmail.com",
+  "password": "Pass@word1",
+  "role": "ADMIN"
+}
+
+
+### ADMIN : Call images/?limit=2 with Auth:jwt image_id(8&9)
+GET http://localhost:8080/images/9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoiMmJhbGl3bWUyMDE0QGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5NzQ2NiwiZXhwIjoxNjUzODk4MzY2fQ.-jc-ZlV10fsxk7Y9XD33X-hR3id-68BUj8aqOzPeCcE
+
+
 ### ADMIN DELETE images/9 with Auth:jwt
 DELETE http://localhost:8080/images/9
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM4OTcxNTcsImV4cCI6MTY1Mzg5ODA1N30.-Bw0A1Otyi1zSsu4da8zflEPGSKZrKI6sLMRC_96Qag
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoiMmJhbGl3bWUyMDE0QGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5NzQ2NiwiZXhwIjoxNjUzODk4MzY2fQ.-jc-ZlV10fsxk7Y9XD33X-hR3id-68BUj8aqOzPeCcE
+
+
 ### USER : Call images/?limit=2 with Auth:jwt image_id(8&9)
 GET http://localhost:8080/images/9
 Content-Type: application/json

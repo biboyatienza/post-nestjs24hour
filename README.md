@@ -23,6 +23,380 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Scenario Testing on [Heroku](https://post-nestjs24hour.herokuapp.com/)
+1. Create a user as ADMIN
+  ```
+  POST https://post-nestjs24hour.herokuapp.com/auth/register
+  Content-Type: application/json
+
+  {
+    "email": "biboyatienza@gmail.com",
+    "password": "Pass@word1",
+    "role": "ADMIN"
+  }
+
+  Result:
+    HTTP/1.1 201 Created
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 202
+    Etag: W/"ca-+IkS9g70Ono8QfGig6FC9wWm/qU"
+    Date: Mon, 30 May 2022 08:30:14 GMT
+    Via: 1.1 vegur
+
+    {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTQxNCwiZXhwIjoxNjUzOTAwMzE0fQ.I0tVrf9-zMIGplpOch6szNOyur1UKeLl0cWqh61Ysg8"
+    }
+  ```
+2. Login User as ADMIN, using email and password
+  ```
+  POST https://post-nestjs24hour.herokuapp.com/auth/login
+  Content-Type: application/json
+
+  {
+    "email": "biboyatienza@gmail.com",
+    "password": "Pass@word1"
+  }
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 202
+    Etag: W/"ca-eH3UcA0Y4rwq4XkO6dIWPIoNdJQ"
+    Date: Mon, 30 May 2022 08:31:38 GMT
+    Via: 1.1 vegur
+
+    {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTQ5OCwiZXhwIjoxNjUzOTAwMzk4fQ.2LNtXHPZMnTd2onwHcDodDcOyTwNz6RPybJ5xthbzAI"
+    }
+  ```
+3. User request for password-reset
+  ```
+  POST https://post-nestjs24hour.herokuapp.com/auth/password-reset
+  Content-Type: application/json
+
+  {
+    "email": "biboyatienza@gmail.com"
+  }
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 326
+    Etag: W/"146-1Ds4S0Hj0l73JSf9OyKCBcczxM8"
+    Date: Mon, 30 May 2022 08:32:46 GMT
+    Via: 1.1 vegur
+
+    {
+      "request_created": true,
+      "password_reset_token": "$2b$10$eqYWs7KRL9cpTg0M/XfvAOQHKqYNbavdr0yghkPuZzM7JCtmQ4RIC",
+      "info": "Since my SENDGRID account is 'Your account is temporarily under review. Please contact Support to regain access. I'll just return the password_reset_token here, until my SENDGRID account is back to normal.'"
+    }
+  ``` 
+4. User change current password
+  ```
+  POST https://post-nestjs24hour.herokuapp.com/auth/password-new
+  Content-Type: application/json
+
+  {
+    "password_reset_token": "$2b$10$eqYWs7KRL9cpTg0M/XfvAOQHKqYNbavdr0yghkPuZzM7JCtmQ4RIC",
+    "new_password": "NEW-Pass@word1"
+  }
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 202
+    Etag: W/"ca-GNVmiUHxVt6ciE2/3lr3pjbtMqQ"
+    Date: Mon, 30 May 2022 08:34:48 GMT
+    Via: 1.1 vegur
+
+    {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTY4OCwiZXhwIjoxNjUzOTAwNTg4fQ.HN1vCqErRSrF4BajUE4B7juNhnAdzN_G01PTqwcZ6uk"
+    }
+  ```
+5. User as ADMIN, GET 3 images
+  ```
+  GET https://post-nestjs24hour.herokuapp.com/images/?limit=3
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTY4OCwiZXhwIjoxNjUzOTAwNTg4fQ.HN1vCqErRSrF4BajUE4B7juNhnAdzN_G01PTqwcZ6uk
+
+  HTTP/1.1 200 OK
+  Server: Cowboy
+  Connection: close
+  X-Powered-By: Express
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 362
+  Etag: W/"16a-J8V213d8VFlPF5QsETNKMEbH54E"
+  Date: Mon, 30 May 2022 08:45:14 GMT
+  Via: 1.1 vegur
+
+  Results:
+    {
+      "limit": 3,
+      "data": [
+        {
+          "hits": 1,
+          "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653900311/bkvw9trkxojvrv5ws8qu.jpg",
+          "id": 11
+        },
+        {
+          "hits": 1,
+          "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653900312/lgdtbls0ivihh3czboij.jpg",
+          "id": 12
+        },
+        {
+          "hits": 1,
+          "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653900314/hwhuxi5uik4dpxoftkhs.jpg",
+          "id": 13
+        }
+      ]
+    }
+
+  ```
+6. User as ADMIN, GET images 11, should increase hits by 1
+  ```
+  ### ADMIN : GET images/11
+  GET https://post-nestjs24hour.herokuapp.com/images/11
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTY4OCwiZXhwIjoxNjUzOTAwNTg4fQ.HN1vCqErRSrF4BajUE4B7juNhnAdzN_G01PTqwcZ6uk
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 113
+    Etag: W/"71-gTtl4tLtkmIM9ZlV9cUjHe+35uQ"
+    Date: Mon, 30 May 2022 08:46:39 GMT
+    Via: 1.1 vegur
+
+    {
+      "id": 11,
+      "hits": 2,
+      "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653900311/bkvw9trkxojvrv5ws8qu.jpg"
+    }
+  ``` 
+7. User as ADMIN, PATCH images 12, hits to 13 and a new uri
+  ```
+  ### ADMIN : PATCH images/12
+  PATCH https://post-nestjs24hour.herokuapp.com/images/12
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTY4OCwiZXhwIjoxNjUzOTAwNTg4fQ.HN1vCqErRSrF4BajUE4B7juNhnAdzN_G01PTqwcZ6uk
+
+  {
+    "hits": 13,
+    "uri": "https://bitcoin.org/img/icons/logotop.svg"
+  }
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: text/html; charset=utf-8
+    Content-Length: 4
+    Etag: W/"4-X/5TO4MPCKAyY0ipFgr6/IraRNs"
+    Date: Mon, 30 May 2022 08:47:57 GMT
+    Via: 1.1 vegur
+
+    true
+  ```
+8. User as ADMIN, GET images 12 to see the changes, hits should be 13 + 1
+  ```
+  GET https://post-nestjs24hour.herokuapp.com/images/12
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1Mzg5OTY4OCwiZXhwIjoxNjUzOTAwNTg4fQ.HN1vCqErRSrF4BajUE4B7juNhnAdzN_G01PTqwcZ6uk
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 69
+    Etag: W/"45-2nj1acAWqgOIV052fWgCFma0kGI"
+    Date: Mon, 30 May 2022 08:48:41 GMT
+    Via: 1.1 vegur
+
+    {
+      "id": 12,
+      "hits": 14,
+      "uri": "https://bitcoin.org/img/icons/logotop.svg"
+    }
+  ```
+9. Login as USER, caisback@outlook.com  
+  ```
+  POST https://post-nestjs24hour.herokuapp.com/auth/login
+  Content-Type: application/json
+
+  {
+    "email": "caisback@outlook.com",
+    "password": "NewPass@word123"
+  }
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 199
+    Etag: W/"c7-nLuKCZiHt3ieZkEsBc4rd29w4IU"
+    Date: Mon, 30 May 2022 08:49:58 GMT
+    Via: 1.1 vegur
+
+    {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM5MDA1OTgsImV4cCI6MTY1MzkwMTQ5OH0.5zOglxiu-mnc5bGWLpdRG5ntNzHn3FyI38PAtKYL094"
+    }
+  ```
+10. USER(caisback@outlook.com) GET 1 image with id of 15
+  ```
+  GET https://post-nestjs24hour.herokuapp.com/images/?limit=1
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM5MDA1OTgsImV4cCI6MTY1MzkwMTQ5OH0.5zOglxiu-mnc5bGWLpdRG5ntNzHn3FyI38PAtKYL094
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 134
+    Etag: W/"86-YK8c9zk7iPW4A66UNoGLXqVBjL4"
+    Date: Mon, 30 May 2022 09:02:52 GMT
+    Via: 1.1 vegur
+
+    {
+      "limit": 1,
+      "data": [
+        {
+          "hits": 1,
+          "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653901371/lr9usaycuc6amsbmodzf.jpg",
+          "id": 15
+        }
+      ]
+    }
+  ```
+11. Login ADMIN user to Delete image with id 15 of USER(caisback@outlook.com)
+  ```
+  POST https://post-nestjs24hour.herokuapp.com/auth/login
+  Content-Type: application/json
+
+  {
+    "email": "biboyatienza@gmail.com",
+    "password": "NEW-Pass@word1"
+  }
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 202
+    Etag: W/"ca-aF8btMqoLyoW1zG1PXTr1onv52o"
+    Date: Mon, 30 May 2022 09:07:38 GMT
+    Via: 1.1 vegur
+
+    {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1MzkwMTY1OCwiZXhwIjoxNjUzOTAyNTU4fQ.7nBmyRSSKoYP4oz67D5-upo1zSosLMSUtdb0KdgT6lE"
+    } 
+  ```
+12. ADMIN user now deleted image 15 of USER(caisback@outlook.com)
+  ```
+  DELETE  https://post-nestjs24hour.herokuapp.com/images/15
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1MzkwMTY1OCwiZXhwIjoxNjUzOTAyNTU4fQ.7nBmyRSSKoYP4oz67D5-upo1zSosLMSUtdb0KdgT6lE
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: text/html; charset=utf-8
+    Content-Length: 4
+    Etag: W/"4-X/5TO4MPCKAyY0ipFgr6/IraRNs"
+    Date: Mon, 30 May 2022 09:08:31 GMT
+    Via: 1.1 vegur
+
+    true
+  ```
+13. USER (caisback@outlook.com) wants to view his image 15, but no avail since this is now soft-deleted and only ADMIN user can view it.
+  ```
+  GET  https://post-nestjs24hour.herokuapp.com/images/15
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM5MDE4ODgsImV4cCI6MTY1MzkwMjc4OH0.mDxDhIKkQaXVQJ2CWokuJ8v24vmDFaKe3VFKfT_xuLE
+
+  Result:
+    HTTP/1.1 403 Forbidden
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 68
+    Etag: W/"44-1JQhH+ckfFmCFAl6VpkMxC3LLQo"
+    Date: Mon, 30 May 2022 09:11:44 GMT
+    Via: 1.1 vegur
+
+    {
+      "statusCode": 403,
+      "message": "Image not exists.",
+      "error": "Forbidden"
+    }
+  ```
+14. Finally, ADMIN User wants to view soft-delete image 15 of USER (caisback@outlook.com)
+  ```
+  GET  https://post-nestjs24hour.herokuapp.com/images/15
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1MzkwMTY1OCwiZXhwIjoxNjUzOTAyNTU4fQ.7nBmyRSSKoYP4oz67D5-upo1zSosLMSUtdb0KdgT6lE
+
+  Result:
+    HTTP/1.1 200 OK
+    Server: Cowboy
+    Connection: close
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 113
+    Etag: W/"71-Cn186+7rF5j1mU322/g/CVVSnGA"
+    Date: Mon, 30 May 2022 09:12:39 GMT
+    Via: 1.1 vegur
+
+    {
+      "id": 15,
+      "hits": 3,
+      "uri": "https://res.cloudinary.com/dhcnbaqsl/image/upload/v1653901371/lr9usaycuc6amsbmodzf.jpg"
+    }
+  ```
+
+
+
 ## Work Logs
 - 2022.May.24
   - 05:58 Created a blank project for "this"
