@@ -1,11 +1,31 @@
+### 30.May.2022 10:37
+### https://www.youtube.com/watch?v=fqefAY9lXBc
+### https://stackoverflow.com/questions/71159026/jest-has-detected-open-handle-for-firstvaluefrom-in-nestjs
+
+GET http://localhost:8080/images/?limit=3
+Content-Type: application/json
+
+
+
+### 28.May.2022 12:56
+### https://stackoverflow.com/questions/38406920/best-way-to-wait-for-foreach-to-complete
+
+
+
 ### 27.May.2022 05:29
 ### http://json2ts.com/
 ### https://github.com/cloudinary/cloudinary_npm/blob/master/samples/basic/basic.js
-
-
+###  https://javascript.plainenglish.io/async-await-foreach-81d4859f2b8c
 ### 
+
 GET http://localhost:8080/images/?limit=3
 Content-Type: application/json
+
+
+
+### Pexel API Call with page & per_page & size, to fixed maximum size
+GET https://api.pexels.com/v1/search?query=people&orientation=square
+Authorization: Bearer 563492ad6f9170000100000143b1404b9f7e475d8c8831687a2e36a9
 
 
 #   message: 'Error in loading https://www.pexels.com/photo/man-wearing-jacket-standing-on-wooden-docks-leading-to-body-of-water-571169/ - 403 Forbidden',
@@ -179,7 +199,7 @@ Content-Type: application/json
 
 
 ### Pexel API Call with page & per_page: 11:14
-GET https://api.pexels.com/v1/search?query=people&page=2&per_page=3
+GET https://api.pexels.com/v1/search?query=people&page=2&per_page=3&size=small
 Authorization: Bearer 563492ad6f9170000100000143b1404b9f7e475d8c8831687a2e36a9
 
 
