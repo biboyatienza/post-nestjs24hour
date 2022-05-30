@@ -161,7 +161,10 @@ $ npm run start:prod
     ```
   - While at 10-ReDeploying2Heroku > $ git push heroku HEAD:master
   - npx ts-node src/foo.ts
-
+- 30.May.2022 15:59
+  - Solved issue with Observables x async/await
+  - all images route now working ok
+  
 ## Support
 Just buzz the author.
 

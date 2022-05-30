@@ -2,6 +2,86 @@
 ### https://www.youtube.com/watch?v=fqefAY9lXBc
 ### https://stackoverflow.com/questions/71159026/jest-has-detected-open-handle-for-firstvaluefrom-in-nestjs
 
+
+### ADMIN DELETE images/9 with Auth:jwt
+DELETE http://localhost:8080/images/9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM4OTcxNTcsImV4cCI6MTY1Mzg5ODA1N30.-Bw0A1Otyi1zSsu4da8zflEPGSKZrKI6sLMRC_96Qag
+### USER : Call images/?limit=2 with Auth:jwt image_id(8&9)
+GET http://localhost:8080/images/9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiYmFsaXdtZTIwMTRAZ21haWwuY29tIiwiaWF0IjoxNjUzODk2NjE3LCJleHAiOjE2NTM4OTc1MTd9.I_g2woPxEz6ru-FNXMkuVPc42o53NQBYi7NyS9d_riE
+
+
+### USER : Call images/?limit=2 with Auth:jwt image_id(8&9)
+GET http://localhost:8080/images/?limit=2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiYmFsaXdtZTIwMTRAZ21haWwuY29tIiwiaWF0IjoxNjUzODk2NjE3LCJleHAiOjE2NTM4OTc1MTd9.I_g2woPxEz6ru-FNXMkuVPc42o53NQBYi7NyS9d_riE
+
+
+### local auth/register : 
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "email": "baliwme2014@gmail.com",
+  "password": "Pass@word1",
+  "role": "USER"
+}
+
+### Call images/4 with Auth:jwt
+GET http://localhost:8080/images/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM4OTYzMTAsImV4cCI6MTY1Mzg5NzIxMH0.IjJ7uOxCyFvlPQebFQOsR9EGELzVPWPn3PIy-8eW8hg
+
+
+### Call images/2 with Auth:jwt
+PATCH http://localhost:8080/images/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM4OTYzMTAsImV4cCI6MTY1Mzg5NzIxMH0.IjJ7uOxCyFvlPQebFQOsR9EGELzVPWPn3PIy-8eW8hg
+
+{
+  "hits": 13,
+  "uri": "https://bitcoin.org/img/icons/logotop.svg"
+}
+
+### Call images/4 with Auth:jwt
+GET http://localhost:8080/images/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM4OTYzMTAsImV4cCI6MTY1Mzg5NzIxMH0.IjJ7uOxCyFvlPQebFQOsR9EGELzVPWPn3PIy-8eW8hg
+
+
+### Call images/2 with Auth:jwt
+GET http://localhost:8080/images/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM4OTYzMTAsImV4cCI6MTY1Mzg5NzIxMH0.IjJ7uOxCyFvlPQebFQOsR9EGELzVPWPn3PIy-8eW8hg
+
+
+### Call images/ with Auth:jwt
+GET http://localhost:8080/images/?limit=3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2Fpc2JhY2tAb3V0bG9vay5jb20iLCJpYXQiOjE2NTM4OTYwNzIsImV4cCI6MTY1Mzg5Njk3Mn0.BcLyfduR9f0Lzo4A0shRIU8NG8NDWHuhQIG6tyN7w6U
+
+### Local auth/login :  with new password
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "caisback@outlook.com",
+  "password": "Pass@word1"
+}
+
+### local auth/register : 
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "email": "caisback@outlook.com",
+  "password": "Pass@word1",
+  "role": "ADMIN"
+}
+
+###
 GET http://localhost:8080/images/?limit=3
 Content-Type: application/json
 

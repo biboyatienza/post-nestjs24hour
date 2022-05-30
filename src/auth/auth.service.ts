@@ -5,7 +5,7 @@ import { TokenType } from './types';
 import { JwtService } from '@nestjs/jwt';
 import { EmailUserDto, NewPasswordUserDto, RegisterUserDto } from './dto';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
-import { User } from '@prisma/client';
+import { Role, User } from '@prisma/client';
 import { LoginUserDto } from './dto/login-user.dto';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { PasswordResetTokenEvent } from './events';
@@ -26,7 +26,8 @@ export class AuthService {
     const newUser = await this.prismaService.user.create({
       data: {
         email: dto.email,
-        passwordHash: passwordHash
+        passwordHash: passwordHash,
+        role: dto.role
       }
     }).catch((error) => {
       if(error instanceof PrismaClientKnownRequestError){
