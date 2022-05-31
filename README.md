@@ -538,7 +538,15 @@ $ npm run start:prod
 - 30.May.2022 15:59
   - Solved issue with Observables x async/await
   - all images route now working ok
-  
+- 31.May.2022 20:23
+  - Update NestJs to latest
+    - $ npm install -g @nestjs/cli npm-check-updates
+    - $ nest update --force
+    - Open NestJs project
+      - $ npm-check-updates "/@nestjs*/" -u
+      - $ npm-check-updates "/nestjs*/" -u    
+      - $ npm install
+
 ## Support
 Just buzz the author.
 
