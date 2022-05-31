@@ -29,8 +29,7 @@ Content-Type: application/json
 
 {
   "email": "biboyatienza@gmail.com",
-  "password": "Pass@word1",
-  "role": "ADMIN"
+  "password": ""
 }
 
 
@@ -655,7 +654,7 @@ POST http://localhost:8080/auth/password-reset
 Content-Type: application/json
 
 {
-  "email": "baliwme2014@gmail.com"
+  "email": "baliwmsssse2014@gmail.com"
 }
 
 
