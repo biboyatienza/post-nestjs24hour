@@ -1,3 +1,39 @@
+### 01.Jun.2022 04:43
+# https://www.youtube.com/watch?v=d3Mn6UMypSY
+# https://stackoverflow.com/questions/67435944/is-there-a-way-to-declare-a-default-value-when-using-apiquery-with-nestjs-and-s
+
+
+GET http://localhost:8080/images/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1NDAzNTIyMywiZXhwIjoxNjU0MDM2MTIzfQ.uFLuo4AF02c1JZo0Q1x52YewwuUWZNNlcSA5VRB792g
+
+###
+GET http://localhost:8080/images/?limit=x
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYmlib3lhdGllbnphQGdtYWlsLmNvbSIsImlhdCI6MTY1NDAzMDg0OCwiZXhwIjoxNjU0MDMxNzQ4fQ._o6XRKU_NxyrFNcBZUDFeFmlQh1ZnU9nPatTzWHGMnE
+
+
+###  auth/register : Login as ADMIN 
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "biboyatienza@gmail.com",
+  "password": "Pass@word1"
+}
+
+
+###  auth/register : Register as ADMIN 
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "email": "biboyatienza@gmail.com",
+  "password": "Pass@word1",
+  "role": "ADMIN"
+}
+
+
 ### 30.May.2022 10:37
 ### https://www.youtube.com/watch?v=fqefAY9lXBc
 ### https://stackoverflow.com/questions/71159026/jest-has-detected-open-handle-for-firstvaluefrom-in-nestjs

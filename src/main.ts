@@ -9,10 +9,16 @@ async function bootstrap() {
   app.enableCors();
 
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
+    .setTitle('Post 24 Hour NestJS API Challenge / Project')
+    .setDescription('A consumable RESTful API for storing and retrieving images.')
     .setVersion('1.0')
-    .addTag('cats')
+    .addBearerAuth(
+      { 
+        type: 'http', 
+        scheme: 'bearer', 
+        bearerFormat: 'JWT' },
+      'JWT'
+      )
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
